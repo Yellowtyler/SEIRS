@@ -89,13 +89,14 @@ class Calculate:
 
 
     def diffS(self, S, R, I):
-        return self.u*(self.N-S) + self.p*R - self.b*(S*I)/self.N - self.v*S
-
+       # return self.u*(self.N-S) + self.p*R - self.b*(S*I)/self.N - self.v*S
+       return self.u*self.N + self.p*R - self.b*(S*I)/self.N - self.v*S
     def diffE(self, E, I, S):
-        return (self.b*S*I)/self.N - (self.u+self.sigma)*E 
-
+       # return (self.b*S*I)/self.N - (self.u+self.sigma)*E 
+        return (self.b*S*I)/self.N - (self.v+self.sigma)*E 
     def diffI(self, I, E):
-        return self.sigma*E - (self.u + self.y)*I
-
+      #  return self.sigma*E - (self.u + self.y)*I
+        return self.sigma*E - (self.v + self.y)*I
     def diffR(self, R, I, S):
-        return self.y*I - self.u*R + self.v*S - self.p*R
+      #  return self.y*I - self.u*R + self.v*S - self.p*R
+        return self.y*I - self.v*R - self.p*R
